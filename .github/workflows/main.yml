@@ -38,7 +38,7 @@ jobs:
       
       - name: Publish
         run: |
-          cp .github dist/.github
+          cp .github dist/.github -r
           git config --global user.email "lilingfeng0408@outlook.com"
           git config --global user.name "Li Lingfeng"
           git add .
