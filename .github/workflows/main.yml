@@ -47,6 +47,7 @@ jobs:
           git switch main
           rm -rf ./*
           git checkout source -- dist
+          git checkout source -- .gitignore
           mv dist/* ./
           rm -r dist
           git commit -m "Build"
