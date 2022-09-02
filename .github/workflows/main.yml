@@ -42,6 +42,7 @@ jobs:
           git config --global user.name "Li Lingfeng"
           git add .
           git commit -m "Update And Build"
+          git checkout -b main origin/main
           git switch main
           git checkout source -- dist
           mv dist/* ./
