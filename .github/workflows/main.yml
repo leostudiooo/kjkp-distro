@@ -29,10 +29,9 @@ jobs:
         uses: actions/setup-node@v3.4.1
 
       # Runs a single command using the runners shell
-      - name: Initialize yarn
+      - name: Initialize repo
         run: |
-          npm install yarn
-          yarn add
+          npm install
           
       - name: Build site
         run: npm run build
