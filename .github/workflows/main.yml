@@ -45,7 +45,9 @@ jobs:
           git commit -m "Update And Build"
           git fetch origin main
           git switch main
+          rm -rf ./*
           git checkout source -- dist
+          git checkout source -- .gitignore
           mv dist/* ./
           rm -r dist
           git commit -m "Build"
