@@ -41,6 +41,7 @@ jobs:
           cp .github dist/.github -r
           git config --global user.email "lilingfeng0408@outlook.com"
           git config --global user.name "Li Lingfeng"
+          git add .
           git commit -m "Update And Build"
           git fetch origin main
           git switch main
