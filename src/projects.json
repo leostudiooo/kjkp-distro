@@ -1,0 +1,12 @@
+{
+	"projectInfo": {
+		"project1": {
+			"projectFile": "/path/to/projectFile1",
+			"wavFile": "//66ccff.site/index.html"
+		},
+		"project2": {
+			"projectFile": "/path/to/projectFile2",
+			"wavFile": "/path/to/wavFile2"
+		}
+	}
+}
