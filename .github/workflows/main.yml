@@ -6,7 +6,7 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "source" ]
+    branches: [ "main", "source" ]
   pull_request:
     branches: [ "source" ]
 
@@ -38,11 +38,12 @@ jobs:
       
       - name: Publish
         run: |
+          cp .github dist/.github
           git config --global user.email "lilingfeng0408@outlook.com"
           git config --global user.name "Li Lingfeng"
           git add .
           git commit -m "Update And Build"
-          git checkout -b main refs/remotes/origin/main
+          git fetch origin main
           git switch main
           git checkout source -- dist
           mv dist/* ./
