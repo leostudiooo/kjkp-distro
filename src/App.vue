@@ -1,6 +1,7 @@
 <template>
   <meta charset="utf-8" lang="zh-CN">
-  <title>Paradox</title>
+  <meta name ="keywords" content="锟斤拷P,配布站,伴奏,工程">
+  <meta name="description" content="锟斤拷P的配布站，用以下载伴奏和工程文件。">
   <div class="wrapper">
     <h1 id="title" class="title" style="font-weight: bolder; font-size: 4em; line-height: normal;">Pandora's<br>Parallel
       Box</h1>
@@ -76,6 +77,8 @@ function download(filename:string) {
   document.body.removeChild(element);
 }
 
+document.title = "Paradox | 锟斤拷的配布站"
+
 </script>
 
 <style>
@@ -107,7 +110,7 @@ function download(filename:string) {
       "tips  sb"
   } */
 input {
-  transition: all ease-in-out 500ms;
+  transition: all linear 250ms;
   place-self: center;
   margin-top: 2%;
   margin-bottom: 4%;
@@ -119,12 +122,17 @@ input {
   outline: none;
   border-radius: 25px;
   background: blur(10px);
-  background-color: #eeeeee;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  background-color: #f4f4f4;
 }
 
-input::active {
-  border: 0px
+input:hover {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  background-color: #f7f7f7;
+}
+
+input:active {
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  background-color: #eeeeee;
 }
 
 select {
@@ -134,7 +142,7 @@ select {
   outline: none;
   height: 40px;
   border-radius: 20px;
-  width: 25%;
+  width: 110px;
   background-color: #f4f4f4;
   text-align: center;
   font-size: medium;
@@ -143,6 +151,7 @@ select {
 
 select:hover {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, .1);
+  background-color: #f7f7f7;
 }
 
 select:active {
@@ -158,7 +167,7 @@ button {
   outline: none;
   height: 40px;
   border-radius: 40px;
-  width: 25%;
+  width: 110px;
   background-color: hsl(160, 100%, 38%);
   color: #fff;
   font-weight: bold;
