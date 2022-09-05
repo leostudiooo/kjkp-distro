@@ -52,10 +52,10 @@ function search() {
   if (project != undefined) {
     notSearched.value = false
     if (fileType.value == "wav"){
-      download(project.wavFile)
+      download(project.wavFile, project)
     } 
     else if (fileType.value == "projectFile") {
-      download(project.projectFile)
+      download(project.projectFile, project)
     }  
   }
   else {
@@ -63,10 +63,10 @@ function search() {
   }
 }
 
-function download(filename:string) {
+function download(fileName: string, downloadName: string) {
   var element = document.createElement('a');
-  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(filename));
-  element.setAttribute('download', filename);
+  element.setAttribute('href', fileName);
+  element.setAttribute('download', downloadName);
 
   element.style.display = 'none';
   document.body.appendChild(element);
