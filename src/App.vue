@@ -1,6 +1,6 @@
 <template>
   <meta charset="utf-8" lang="zh-CN">
-  <meta name ="keywords" content="锟斤拷P,配布站,伴奏,工程">
+  <meta name="keywords" content="锟斤拷P,配布站,伴奏,工程">
   <meta name="description" content="锟斤拷P的配布站，用以下载伴奏和工程文件。">
   <div class="wrapper">
     <h1 id="title" class="title" style="font-weight: bolder; font-size: 4em; line-height: normal;">Pandora's<br>Parallel
@@ -14,14 +14,15 @@
         <button @click="search()">搜索并下载</button>
       </div>
       <div id="selection-dropdown">
-        <select @input="fileTypeIn">
+        <select @input="fileTypeIn" >
+          <option disabled hidden selected>请选择</option>
           <option value="wav">WAV 伴奏</option>
           <option value="projectFile">工程文件</option>
         </select>
       </div>
     </div>
     <p id="tips2" v-if="notSearched" style="float: left; max-width: 450px; margin-top: 2%;">
-      似乎没有找到文件。<br>请检查拼写是否正确且完整。如果确实没有你想要的文件，请<a href="mailto:66ccff@luotianyi.me">发邮件</a>告诉我。
+      似乎没有找到文件。<br>请检查拼写是否正确且完整、是否已经选择文件类型。如果确实没有你想要的文件，请<a href="mailto:66ccff@luotianyi.me">发邮件</a>告诉我。
     </p>
   </div>
   <div id="footer" class="footer">
@@ -31,8 +32,8 @@
 </template>
 
 <script setup lang="ts">
-import {ref} from 'vue';
-import {projectInfo} from './projects.json'
+import { ref } from 'vue';
+import { projectInfo } from './projects.json'
 
 // Initialize
 const notSearched = ref(false);
@@ -40,11 +41,11 @@ const projectName = ref("");
 const fileType = ref("");
 var project: any;
 
-function projectNameIn(e:any) {
+function projectNameIn(e: any) {
   projectName.value = e.target.value;
 }
 
-function fileTypeIn(e:any) {
+function fileTypeIn(e: any) {
   fileType.value = e.target.value;
 }
 
@@ -52,12 +53,15 @@ function search() {
   project = projectInfo[projectName.value];
   if (project != undefined) {
     notSearched.value = false
-    if (fileType.value == "wav"){
-      download(project.wavFile, project)
-    } 
+    if (fileType.value == "wav") {
+      download(project.wavFile, projectName.value + "_Instrumental")
+    }
     else if (fileType.value == "projectFile") {
-      download(project.projectFile, project)
-    }  
+      download(project.projectFile, projectName.value + "_ProjectFile")
+    }
+    else {
+      notSearched.value = true
+    }
   }
   else {
     notSearched.value = true
