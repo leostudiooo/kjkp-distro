@@ -159,8 +159,7 @@ select:hover {
 }
 
 select:active {
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, .2);
-  background-color: #eeeeee;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, .2), inset 0px 10px 10px rgba(0, 0, 0, .2);
 }
 
 button {
@@ -179,16 +178,16 @@ button {
 }
 
 button:hover {
-  box-shadow: 0px 0px 10px hsla(160, 100%, 80%, 0.9);
+  box-shadow: 0px 0px 10px hsla(160, 100%, 80%, 0.9), inset 0px -10px 10px rgba(0, 0, 0, .3), inset 0px 10px 10px rgba(255,255,255,.3);
 }
 
 button:active {
-  background-color: hsl(160, 100%, 30%);
-  box-shadow: 0px 0px 5px hsla(160, 100%, 20%, 0.9);
+  background-color: hsl(160, 100%, 35%);
+  box-shadow: 0px 0px 5px hsla(160, 100%, 20%, 0.9), inset 0px 10px 10px rgba(0, 0, 0, .3);
 }
 
 body {
-  transition: all ease-in-out 500ms;
+  transition: all ease-in-out 50ms;
 }
 
 option {
@@ -200,5 +199,52 @@ option {
   font-weight: bold;
   border-radius: 20px;
   background-color: #eeeeee;
+}
+@media (prefers-color-scheme: dark){
+  body {
+    background-color: #222;
+    color: #fff;
+  }
+  input {
+    background-color: #333;
+    color: #fff;
+  }
+  input::placeholder {
+    color: #d7d7d7;
+  }
+  input:hover {
+    background-color: #444;
+  }
+  input:active {
+    background-color: #555;
+  }
+  select {
+    background-color: #333;
+    color: #fff;
+  }
+  select:hover {
+    background-color: #444;
+    box-shadow: none;
+  }
+  select:active {
+    background-color: #555;
+    box-shadow: none;
+  }
+  button {
+    background-color: hsl(160, 100%, 28%);
+    color: #fff;
+  }
+  button:hover {
+    background-color: hsl(160, 100%, 32%);
+    box-shadow: none;
+  }
+  button:active {
+    background-color: hsl(160, 100%, 38%);
+    box-shadow: none;
+  }
+  option {
+    background-color: #333;
+    color: #fff;
+  }
 }
 </style>
