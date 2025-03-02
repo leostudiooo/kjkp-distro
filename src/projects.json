@@ -1,16 +1,8 @@
 {
 	"projectInfo": {
-		"project1": {
-			"projectFile": "/path/to/projectFile1",
-			"wavFile": "//66ccff.site/index.html"
-		},
-		"project2": {
-			"projectFile": "/path/to/projectFile2",
-			"wavFile": "/path/to/wavFile2"
-		},
 		"星澜永恒": {
-			"wavFile": "//cloud.catalley.team/api/v3/file/source/2290/%E6%98%9F%E6%BE%9C%E6%B0%B8%E6%81%92%28Instrumenal%29.wav?sign=xvvke2GbKJ9v669rNxk6irh07iLDU1NA-duKigQFr6M%3D%3A0",
-			"projectFile": "//cloud.catalley.team/api/v3/file/source/2291/%E6%98%9F%E6%BE%9C%E6%B0%B8%E6%81%92.vpr?sign=bzdpy27RFBqodhkdH7d4ALVLq9kWzomTidZ_PTUkMRs%3D%3A0"
+			"wavFile": "https://resources.xn--huu92dpwpaa217f909c.top/%E6%98%9F%E6%BE%9C%E6%B0%B8%E6%81%92(Instrumenal).wav",
+			"projectFile": "https://resources.xn--huu92dpwpaa217f909c.top/%E6%98%9F%E6%BE%9C%E6%B0%B8%E6%81%92.vpr"
 		},
 		"easteregg": {
 			"wavFile": "",
