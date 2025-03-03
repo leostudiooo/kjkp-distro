@@ -1,0 +1,23 @@
+:root {
+  --primary-color: hsl(160, 100%, 38%);
+  --primary-color-hover: hsl(160, 100%, 42%);
+  --primary-color-active: hsl(160, 100%, 32%);
+  
+  --bg-color: #fff;
+  --input-bg: #f8f8f8;
+  --input-bg-hover: #fbfbfb;
+  --input-bg-active: #eeeeee;
+  --text-color: #000;
+  --text-dimmed-color: #666;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #222;
+    --input-bg: #333;
+    --input-bg-hover: #444;
+    --input-bg-active: #555;
+    --text-color: #fff;
+    --text-dimmed-color: #bbb;
+  }
+}
