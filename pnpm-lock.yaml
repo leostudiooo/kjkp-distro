@@ -10,17 +10,20 @@ importers:
     dependencies:
       vite-plugin-singlefile:
         specifier: ^0.11.1
-        version: 0.11.1(vite@3.2.11)
+        version: 0.11.1(vite@3.2.11(@types/node@22.13.8))
       vue:
         specifier: ^3.5.13
         version: 3.5.13
     devDependencies:
+      '@types/node':
+        specifier: ^22.13.8
+        version: 22.13.8
       '@vitejs/plugin-vue':
         specifier: ^3.0.1
-        version: 3.2.0(vite@3.2.11)(vue@3.5.13)
+        version: 3.2.0(vite@3.2.11(@types/node@22.13.8))(vue@3.5.13)
       vite:
         specifier: ^3.2.11
-        version: 3.2.11
+        version: 3.2.11(@types/node@22.13.8)
 
 packages:
 
@@ -55,6 +58,9 @@ packages:
 
   '@jridgewell/sourcemap-codec@1.5.0':
     resolution: {integrity: sha512-gv3ZRaISU3fjPAgNsriBRqGWQL6quFx04YMPW/zD8XMLsU32mhCCbfbO6KZFLjvYpCZ8zyDEgqsgf+PwPaM7GQ==}
+
+  '@types/node@22.13.8':
+    resolution: {integrity: sha512-G3EfaZS+iOGYWLLRCEAXdWK9my08oHNZ+FHluRiggIYJPOXzhOiDgpVCUHaUvyIC5/fj7C/p637jdzC666AOKQ==}
 
   '@vitejs/plugin-vue@3.2.0':
     resolution: {integrity: sha512-E0tnaL4fr+qkdCNxJ+Xd0yM31UwMkQje76fsDVBBUCoGOUPexu2VDUYHL8P4CwV+zMvWw6nlRw19OnRKmYAJpw==}
@@ -303,6 +309,9 @@ packages:
     resolution: {integrity: sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==}
     engines: {node: '>=8.0'}
 
+  undici-types@6.20.0:
+    resolution: {integrity: sha512-Ny6QZ2Nju20vw1SRHe3d9jVu6gJ+4e3+MMpqu7pqE5HT6WsTSlce++GQmK5UXS8mzV8DSYHrQH+Xrf2jVcuKNg==}
+
   vite-plugin-singlefile@0.11.1:
     resolution: {integrity: sha512-ZTT3XA2AM7rOf4UGmEM+FmMht000Uuc6OJSdlYqddFE9y7IrGDnNhFVQ/TZQMAFzZ0dYX3JzknAmrdKWe6s0xg==}
     peerDependencies:
@@ -364,9 +373,13 @@ snapshots:
 
   '@jridgewell/sourcemap-codec@1.5.0': {}
 
-  '@vitejs/plugin-vue@3.2.0(vite@3.2.11)(vue@3.5.13)':
+  '@types/node@22.13.8':
     dependencies:
-      vite: 3.2.11
+      undici-types: 6.20.0
+
+  '@vitejs/plugin-vue@3.2.0(vite@3.2.11(@types/node@22.13.8))(vue@3.5.13)':
+    dependencies:
+      vite: 3.2.11(@types/node@22.13.8)
       vue: 3.5.13
 
   '@vue/compiler-core@3.5.13':
@@ -578,18 +591,21 @@ snapshots:
     dependencies:
       is-number: 7.0.0
 
-  vite-plugin-singlefile@0.11.1(vite@3.2.11):
+  undici-types@6.20.0: {}
+
+  vite-plugin-singlefile@0.11.1(vite@3.2.11(@types/node@22.13.8)):
     dependencies:
       micromatch: 4.0.8
-      vite: 3.2.11
+      vite: 3.2.11(@types/node@22.13.8)
 
-  vite@3.2.11:
+  vite@3.2.11(@types/node@22.13.8):
     dependencies:
       esbuild: 0.15.18
       postcss: 8.5.3
       resolve: 1.22.10
       rollup: 2.79.2
     optionalDependencies:
+      '@types/node': 22.13.8
       fsevents: 2.3.3
 
   vue@3.5.13:
