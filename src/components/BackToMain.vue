@@ -33,6 +33,7 @@ const mainSiteUrl = 'https://leostudiooo.github.io/'
   gap: 0.25rem;
   line-height: 1;
   box-shadow: -5px -px 20px rgba(0, 0, 0, 0.1);
+	z-index: 9999;
 }
 
 .back-icon {
