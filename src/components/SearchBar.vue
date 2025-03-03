@@ -70,7 +70,6 @@ button {
 	outline: none;
 	border-radius: 25px;
 	font-size: medium;
-	transition: all ease-in-out 250ms;
 }
 
 input {
@@ -96,6 +95,7 @@ select {
     box-shadow: 2px 5px 20px rgba(0, 0, 0, 0.1);
     /* Safari 特定样式 */
     -webkit-appearance: none;
+	appearance: none;
     padding: 0 1em;
     background-image: url("data:image/svg+xml;utf8,<svg fill='gray' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
     background-repeat: no-repeat;

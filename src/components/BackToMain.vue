@@ -48,4 +48,10 @@ const mainSiteUrl = 'https://leostudiooo.github.io/'
 .back-to-main:active {
 	background-color: var(--input-bg-active);
 }
+
+@media (max-width: 600px) {
+  .back-to-main {
+    left: 2rem;
+  }
+}
 </style>
