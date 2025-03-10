@@ -15,20 +15,21 @@ const mainSiteUrl = 'https://leostudiooo.github.io/'
 
 <style scoped>
 .back-to-main {
-    position: fixed;
-    top: 2rem;
-    left: 4rem;
-    text-decoration: none;
-    color: var(--text-dimmed-color);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    background-color: var(--bg-color);
-    transition: all 0.2s ease-in-out;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.25rem;
-    line-height: 1;
-    box-shadow: -5px -px 20px hsla(0, 0%, 0%, 0.1);
+  position: fixed;
+  top: 2rem;
+  left: 4rem;
+  text-decoration: none;
+  color: var(--text-dimmed-color);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  background-color: var(--bg-color);
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  line-height: 1;
+  box-shadow: -5px -px 20px rgba(0, 0, 0, 0.1);
+  z-index: 114514;
 }
 
 .back-icon {
