@@ -29,7 +29,7 @@ interface Props {
 const props = defineProps<Props>()
 const emit = defineEmits<{
 	'notFound': [value: boolean]
-	'download': [fileUrl: string, fileName: string]
+	'download': [projectName: string, fileType: string]
 }>()
 
 const localProjectName = ref('')
@@ -44,10 +44,9 @@ function handleSearch() {
 	}
 
 	emit('notFound', false)
-	const fileName = localFileType.value === 'wav' ? project.wavFile : project.projectFile
-	const downloadName = `${localProjectName.value}_${localFileType.value === 'wav' ? 'Instrumental' : 'ProjectFile'}`
-
-	emit('download', fileName, downloadName)
+	const fileType = localFileType.value === 'wav' ? 'wav' : 'project'
+	
+	emit('download', localProjectName.value, fileType)
 }
 </script>
 
