@@ -11,5 +11,14 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
       'components': fileURLToPath(new URL('./src/components', import.meta.url))
     }
+  },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'https://kjkp-api.lilingfeng0408.workers.dev',
+        changeOrigin: true,
+        secure: false
+      }
+    }
   }
 })
