@@ -1,7 +1,12 @@
 <template>
-    <div class="search-bar">
+    <form class="search-bar" @submit.prevent="handleFormSubmit">
         <div class="search-input">
-            <input v-model="searchKeyword" autofocus placeholder="试试看！">
+            <input 
+                v-model="searchKeyword" 
+                autofocus 
+                placeholder="试试看！"
+                type="text"
+            >
         </div>
         <div class="search-controls" style="padding-top: 1em;">
             <select v-model="fileType">
@@ -10,9 +15,9 @@
                 <option value="project">工程文件</option>
                 <option value="others">其他内容</option>
             </select>
-            <button @click="handleSearch" :disabled="loading">{{ loading ? '搜索中...' : '搜索并下载' }}</button>
+            <button type="submit" :disabled="loading">{{ loading ? '搜索中...' : '搜索并下载' }}</button>
         </div>
-    </div>
+    </form>
 </template>
 
 <script setup lang="ts">
@@ -21,20 +26,27 @@ import { ref } from 'vue'
 const emit = defineEmits<{
     'search': [keyword: string, fileType: string]
     'loading': [loading: boolean]
+    'error': [message: string]
 }>()
 
 const searchKeyword = ref('')
 const fileType = ref('')
 const loading = ref(false)
 
-async function handleSearch() {
-    if (!searchKeyword.value || !fileType.value) {
+function handleFormSubmit() {
+    if (!searchKeyword.value.trim()) {
+        emit('error', '请输入歌曲名称')
+        return
+    }
+    
+    if (!fileType.value) {
+        emit('error', '请选择文件类型')
         return
     }
 
     loading.value = true
     emit('loading', true)
-    emit('search', searchKeyword.value, fileType.value)
+    emit('search', searchKeyword.value.trim(), fileType.value)
 }
 
 function reset() {
@@ -134,5 +146,6 @@ button:disabled {
     background-color: var(--input-bg);
     color: var(--text-color);
     cursor: not-allowed;
+    box-shadow: 2px 5px 20px hsla(0, 0%, 0%, 0.1);
 }
 </style>

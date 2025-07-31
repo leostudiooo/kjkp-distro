@@ -11,6 +11,7 @@
 
         <SearchInterface 
             @search="handleSearch"
+            @error="handleError"
             ref="searchInterfaceRef"
         />
 
@@ -44,6 +45,15 @@ const showToast = ref(false)
 const toastType = ref<'info' | 'success' | 'error' | 'warning'>('info')
 const downloadProgress = ref<number | null>(null)
 const searchInterfaceRef = ref()
+
+function handleError(message: string) {
+  toastMessage.value = message
+  toastType.value = 'warning'
+  showToast.value = true
+  setTimeout(() => {
+    showToast.value = false
+  }, 3000)
+}
 
 async function handleSearch(keyword: string, fileType: string) {
   loading.value = true
