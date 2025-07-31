@@ -77,14 +77,24 @@ export default {
           });
         }
 
+        // 获取文件大小
+        let fileSize = null;
+        try {
+          const object = await env.RESOURCES.head(fileName);
+          fileSize = object?.size || null;
+        } catch (error) {
+          console.error('Error getting file size:', error);
+        }
+
         // 生成临时代理URL
-        const downloadUrl = `https://kjkp-api.lilingfeng0408.workers.dev/proxy/${encodeURIComponent(fileName)}`;
+        const downloadUrl = `https://api.烫烫烫的锟斤拷.top/proxy/${encodeURIComponent(fileName)}`;
 
         return new Response(JSON.stringify({ 
           downloadUrl,
           filename: fileName,
           projectName: keyword,
-          fileType
+          fileType,
+          fileSize
         }), {
           headers: {
             ...corsHeaders,

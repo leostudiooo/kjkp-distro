@@ -14,14 +14,15 @@
             ref="searchInterfaceRef"
         />
 
-        <p v-if="errorMessage" class="error-message">
-            {{ errorMessage }}
-        </p>
 
         <!-- Toast通知 -->
-        <div v-if="showToast" class="toast">
-            {{ toastMessage }}
-        </div>
+        <Toast 
+            :show="showToast"
+            :message="toastMessage"
+            :type="toastType"
+            :progress="downloadProgress"
+            @close="showToast = false"
+        />
 
         <License />
     </div>
@@ -35,24 +36,26 @@ import SearchInterface from './components/SearchInterface.vue'
 import BackToMain from './components/BackToMain.vue'
 import Footer from './components/Footer.vue'
 import License from './components/License.vue'
+import Toast from './components/Toast.vue'
 
 const loading = ref(false)
-const errorMessage = ref('')
 const toastMessage = ref('')
 const showToast = ref(false)
+const toastType = ref<'info' | 'success' | 'error' | 'warning'>('info')
+const downloadProgress = ref<number | null>(null)
 const searchInterfaceRef = ref()
 
 async function handleSearch(keyword: string, fileType: string) {
   loading.value = true
-  errorMessage.value = ''
   searchInterfaceRef.value?.setLoading(true)
 
   try {
     showToast.value = false
     toastMessage.value = ''
+    downloadProgress.value = null
     
     const apiUrl = import.meta.env.PROD 
-      ? 'https://kjkp-api.lilingfeng0408.workers.dev/api/search'
+      ? 'https://api.烫烫烫的锟斤拷.top/api/search'
       : '/api/search'
     
     const response = await fetch(apiUrl, {
@@ -69,17 +72,44 @@ async function handleSearch(keyword: string, fileType: string) {
     if (response.ok) {
       const data = await response.json()
       
-      // 显示下载进度
-      toastMessage.value = '正在下载...'
+      // 显示准备下载
+      toastMessage.value = '准备下载...'
+      toastType.value = 'info'
       showToast.value = true
       
       const fileName = data.filename
+      const fileSize = data.fileSize
       
       try {
         const downloadResponse = await fetch(data.downloadUrl)
         if (!downloadResponse.ok) throw new Error('下载失败')
         
-        const blob = await downloadResponse.blob()
+        if (!downloadResponse.body) throw new Error('响应体为空')
+        
+        // 显示下载进度
+        toastMessage.value = '正在下载...'
+        downloadProgress.value = 0
+        
+        const reader = downloadResponse.body.getReader()
+        const chunks: Uint8Array[] = []
+        let receivedLength = 0
+        
+        while (true) {
+          const { done, value } = await reader.read()
+          
+          if (done) break
+          
+          chunks.push(value)
+          receivedLength += value.length
+          
+          // 更新进度
+          if (fileSize) {
+            downloadProgress.value = (receivedLength / fileSize) * 100
+          }
+        }
+        
+        // 合并chunks创建blob
+        const blob = new Blob(chunks)
         const url = window.URL.createObjectURL(blob)
         
         const link = document.createElement('a')
@@ -91,24 +121,39 @@ async function handleSearch(keyword: string, fileType: string) {
         document.body.removeChild(link)
         window.URL.revokeObjectURL(url)
         
+        // 显示成功
         toastMessage.value = '下载完成！'
+        toastType.value = 'success'
+        downloadProgress.value = null
         setTimeout(() => {
           showToast.value = false
         }, 2000)
         
       } catch (downloadError) {
         toastMessage.value = '下载失败，请重试'
+        toastType.value = 'error'
+        downloadProgress.value = null
         setTimeout(() => {
           showToast.value = false
         }, 3000)
       }
     } else {
       const error = await response.text()
-      errorMessage.value = error || '未找到文件，请检查拼写是否正确'
+      toastMessage.value = error || '未找到文件，请检查拼写是否正确'
+      toastType.value = 'error'
+      showToast.value = true
+      setTimeout(() => {
+        showToast.value = false
+      }, 4000)
     }
   } catch (error) {
     console.error('Error searching:', error)
-    errorMessage.value = '搜索失败，请稍后重试'
+    toastMessage.value = '搜索失败，请稍后重试'
+    toastType.value = 'error'
+    showToast.value = true
+    setTimeout(() => {
+      showToast.value = false
+    }, 4000)
   } finally {
     loading.value = false
     searchInterfaceRef.value?.setLoading(false)

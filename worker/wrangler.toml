@@ -2,6 +2,9 @@ name = "kjkp-api"
 main = "src/index.ts"
 compatibility_date = "2024-07-30"
 
+# Custom domain routes - configure manually in Cloudflare Dashboard
+# routes = [{ pattern = "api.烫烫烫的锟斤拷.top", custom_domain = true }]
+
 [[r2_buckets]]
 binding = "RESOURCES"
 bucket_name = "paradox"
