@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-const mainSiteUrl = 'https://leostudiooo.github.io/'
+const mainSiteUrl = 'https://烫烫烫的锟斤拷.top/'
 </script>
 
 <style scoped>
