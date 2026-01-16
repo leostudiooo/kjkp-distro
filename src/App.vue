@@ -186,7 +186,7 @@ async function handleSearch(keyword: string, fileType: string) {
   }
 }
 
-document.title = "Paradox | 锟斤拷的配布站"
+document.title = "Parallel Box | 锟斤拷的配布站"
 </script>
 
 <style>
