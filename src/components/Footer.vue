@@ -1,5 +1,6 @@
 <template>
     <footer class="footer">
+        <div class="barcode">|| ||| | || |||| | KJKP-DISTRO-V3</div>
         <p class="copyright">
             Copyright © 锟斤拷 P {{ copyrightYears }}
         </p>
@@ -32,5 +33,13 @@ const copyrightYears = computed(() => {
     margin-top: auto;
     font-size: 0.9rem;
     color: var(--text-dimmed-color);
+}
+
+.barcode {
+    font-family: monospace;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    opacity: 0.4;
 }
 </style>

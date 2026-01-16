@@ -21,3 +21,104 @@
     --text-dimmed-color: #bbb;
   }
 }
+/* Box Metaphor */
+:root {
+  --box-border-color: #000;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --box-border-color: #fff;
+  }
+}
+
+.box-container {
+  position: relative;
+  border: 1px solid var(--box-border-color);
+  padding: 3rem 2rem;
+  background: var(--bg-color);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  margin-top: 2rem;
+}
+
+.box-corner {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--box-border-color);
+}
+
+.box-corner-tl { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+.box-corner-tr { top: -1px; right: -1px; border-left: none; border-bottom: none; }
+.box-corner-bl { bottom: -1px; left: -1px; border-right: none; border-top: none; }
+.box-corner-br { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+
+.box-label {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-family: monospace;
+  font-size: 10px;
+  opacity: 0.5;
+  text-transform: uppercase;
+}
+
+.box-hazard {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: repeating-linear-gradient(
+    45deg,
+    #ffd700,
+    #ffd700 10px,
+    #000 10px,
+    #000 20px
+  );
+  opacity: 0.8;
+}
+
+.box-handle {
+  position: absolute;
+  top: 50%;
+  left: -15px;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 50px;
+  border: 1px solid var(--box-border-color);
+  background: var(--bg-color);
+  border-radius: 2px;
+}
+
+.box-handle-right {
+  left: auto;
+  right: -15px;
+}
+
+.box-tech-label {
+  display: block;
+  margin-top: 2rem;
+  font-family: monospace;
+  font-size: 0.7rem;
+  color: var(--text-dimmed-color);
+  border-top: 1px dashed var(--box-border-color);
+  padding-top: 1rem;
+}
+
+.box-sticker {
+  position: absolute;
+  top: 40px;
+  right: -10px;
+  background: #ff4d4d;
+  color: #fff;
+  padding: 4px 8px;
+  font-family: 'Arial Black', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 900;
+  transform: rotate(5deg);
+  border: 1px solid rgba(0,0,0,0.1);
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+  z-index: 10;
+  pointer-events: none;
+}

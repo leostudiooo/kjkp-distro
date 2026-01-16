@@ -1,6 +1,6 @@
 <template>
   <div class="title">
-    <span style="font-style: italic;">Parallel</span> <span style="font-weight: bolder;">Box</span>
+    <span style="font-style: italic;">Parallel</span> <span class="box-text">Box</span>
   </div>
   <div class="tips">
     <p><strong>欢迎来到平行魔盒！</strong></p>
@@ -17,6 +17,13 @@
   font-size: 4em;
   line-height: normal;
   margin-bottom: 1rem;
+}
+
+.box-text {
+  background: var(--text-color);
+  color: var(--bg-color);
+  padding: 0 0.2rem;
+  font-weight: 900;
 }
 
 .tips {

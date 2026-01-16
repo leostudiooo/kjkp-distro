@@ -6,14 +6,31 @@
     <BackToMain />
     
     <div class="wrapper">
-      <BigTitle />
-      <!-- <License /> -->
-      <SearchInterface 
-            @search="handleSearch"
-            @error="handleError"
-            ref="searchInterfaceRef"
-        />
+      <div class="box-container">
+        <!-- Box Metaphor Elements -->
+        <div class="box-corner box-corner-tl"></div>
+        <div class="box-corner box-corner-tr"></div>
+        <div class="box-corner box-corner-bl"></div>
+        <div class="box-corner box-corner-br"></div>
+        <div class="box-label">KJKP-DISTRO / P-BOX</div>
+        <div class="box-handle"></div>
+        <div class="box-handle box-handle-right"></div>
+        <div class="box-sticker">FRAGILE</div>
+        <div class="box-hazard"></div>
 
+        <BigTitle />
+        <!-- <License /> -->
+        <SearchInterface 
+              @search="handleSearch"
+              @error="handleError"
+              ref="searchInterfaceRef"
+          />
+
+        <div class="box-tech-label">
+          KJKP PROJECT DISTRIBUTION UNIT // SERIAL No. 0x烫烫烫 <br>
+          STATUS: OPERATIONAL | TEMP: OPTIMAL
+        </div>
+      </div>
 
         <!-- Toast通知 -->
         <Toast 
@@ -183,7 +200,11 @@ body {
 .wrapper {
     max-width: 500px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 1rem;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .error-message {
@@ -192,9 +213,7 @@ body {
 
 .footer {
     text-align: center;
-    position: fixed;
-    left: 0;
-    bottom: 5%;
+    padding-bottom: 2rem;
     width: 100%;
 }
 </style>
