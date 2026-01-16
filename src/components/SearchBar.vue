@@ -69,7 +69,7 @@ button {
 	outline: none;
 	border-radius: 25px;
 	font-size: medium;
-	transition: all 250ms ease-in-out;
+	transition: all 100ms ease-out;
 }
 
 input {

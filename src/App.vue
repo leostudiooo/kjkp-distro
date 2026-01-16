@@ -4,12 +4,11 @@
     <meta name="description" content="锟斤拷P的配布站，用以下载伴奏和工程文件。">
 
     <BackToMain />
-
+    
     <div class="wrapper">
-        <h1 class="title">Pandora's<br>Parallel Box</h1>
-        <div class="tips">请准确地输入所需歌曲的完整名字，选择文件类型，然后点击搜索并下载按钮。</div>
-
-        <SearchInterface 
+      <BigTitle />
+      <!-- <License /> -->
+      <SearchInterface 
             @search="handleSearch"
             @error="handleError"
             ref="searchInterfaceRef"
@@ -25,7 +24,6 @@
             @close="showToast = false"
         />
 
-        <License />
     </div>
 
     <Footer />
@@ -38,6 +36,7 @@ import BackToMain from './components/BackToMain.vue'
 import Footer from './components/Footer.vue'
 import License from './components/License.vue'
 import Toast from './components/Toast.vue'
+import BigTitle from './components/BigTitle.vue'
 
 const loading = ref(false)
 const toastMessage = ref('')
@@ -101,7 +100,7 @@ async function handleSearch(keyword: string, fileType: string) {
         downloadProgress.value = 0
         
         const reader = downloadResponse.body.getReader()
-        const chunks: Uint8Array[] = []
+        const chunks: any[] = []
         let receivedLength = 0
         
         while (true) {
@@ -185,18 +184,6 @@ body {
     max-width: 500px;
     margin: 0 auto;
     padding: 2rem;
-}
-
-.title {
-    font-weight: bolder;
-    font-size: 4em;
-    line-height: normal;
-    margin-bottom: 1rem;
-}
-
-.tips {
-    line-height: 1.6;
-    margin-bottom: 2rem;
 }
 
 .error-message {

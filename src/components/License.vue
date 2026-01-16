@@ -1,17 +1,18 @@
 <template>
-    <details>
+    <details open>
         <summary>
             <h3>使用规约</h3>
         </summary>
         <div class="content">
-            <p>本站分发的内容可以自由下载和使用。以任何形式使用本站内容时，都请注明出处（除非在文件中另有说明），并以相同形式共享。不得将下载的内容用于商业用途。使用规范细则请参考 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="license noopener noreferrer">知识共享 署名—非商业性使用—相同方式共享 4.0</a> 许可协议，请务必仔细阅读并遵守。</p>
+            <p>在这里分发的内容可以在 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="license noopener noreferrer">知识共享 署名—非商业性使用—相同方式共享 4.0 (CC BY-NC-SA 4.0)</a> 许可下使用。</p>
+            <p>可以使用 <a href="https://sdercolin.github.io/utaformatix3/" target="_blank" rel="noopener noreferrer">UtaFormatix</a> 转换工程为想要的格式。</p>
         </div>
     </details>
 </template>
 
 <style scoped>
 details {
-    padding-top: 1em;
+    padding-bottom: 1em;
 }
 summary {
     cursor: pointer;
